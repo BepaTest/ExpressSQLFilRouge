@@ -1,0 +1,13 @@
+create table `student`(
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    birthday DATE NOT NULL,
+    accepted BOOL,
+    level INT);
+
+insert into student (id, name, birthday, accepted, level) 
+VALUES (1, 'vava', '1980-09-20', 1, 3),
+(2, 'gege', '1985-10-24', 1, 4),
+(3, 'babu', '1994-03-14', 0, 0),
+(4, 'bevu', '1989-03-16', 1, 2),
+(5, 'didu', '1994-05-14', 0, 1);
