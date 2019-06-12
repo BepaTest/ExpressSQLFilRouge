@@ -2,9 +2,9 @@ const mysql = require('mysql');
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'vera',
+  user: 'root',
   password: 'password',
-  database: 'fil_rouge',
+  database: 'express_SQL',
 });
 
 module.exports=connection;

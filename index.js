@@ -112,13 +112,24 @@ app.get('/api/students/namesOrderd', (req, res) =>{
     });
 });
 
-app.put('/api/students/:id', (req, res) =>{
+app.put('/api/students:id', (req, res) =>{
   const idStudent=req.params.id;
   const formData=req.body;
   connection.query('UPDATE student SET? WHERE id = ?', [formData, idStudent], err =>{
       if(err){
           console.log(err);
-          res.status(500).send("Erreur lors de la modification d'un employé");
+          res.status(500).send("Erreur lors de la modification d'un etudiant");
+      } else {
+          res.sendStatus(200);
+      }
+  });
+});
+
+app.put('/api/students/accepted', (req, res) =>{
+  connection.query(`UPDATE student SET accepted='${req.query.accepted}' WHERE accepted != '${req.query.accepted}'`, err =>{
+      if(err){
+          console.log(err);
+          res.status(500).send("Erreur lors de la modification d'un boolean");
       } else {
           res.sendStatus(200);
       }
@@ -149,3 +160,4 @@ app.delete('/api/students/accepted/?', (req,res) =>{
       }
   });
 })
+
